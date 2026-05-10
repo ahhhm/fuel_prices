@@ -114,8 +114,8 @@ volatility = pd.DataFrame({
 # Total number of price changes (any direction)
 total_changes = changes_df[changes_df['change'] != 0].groupby('companyName').size()
 
-# Mean change across all changes (increases and decreases)
-mean_change = changes_df[changes_df['change'] != 0].groupby('companyName')['change'].mean()
+# Mean absolute change — treats increases and decreases equally (e.g. -0.02 counts as 0.02)
+mean_change = changes_df[changes_df['change'] != 0].groupby('companyName')['change'].apply(lambda x: x.abs().mean())
 
 # Mean increase and mean decrease separately
 mean_increase = increases.groupby('companyName')['change'].mean()
