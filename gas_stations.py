@@ -343,8 +343,9 @@ elif st.session_state.page == 'oil':
     up_mean = scatter_df[scatter_df['oil_direction'] == 'Oil Up']['gas_pct_change'].mean()
     down_mean = scatter_df[scatter_df['oil_direction'] == 'Oil Down']['gas_pct_change'].mean()
     col1, col2 = st.columns(2)
-    col1.markdown(f"**Average gas change when oil goes up:** +{up_mean:.3f}%")
-    col2.markdown(f"**Average gas change when oil goes down:** {down_mean:.3f}%")
+    col1.markdown(f"**Average gas change when oil goes down:** {down_mean:.3f}%")
+    col2.markdown(f"**Average gas change when oil goes up:** +{up_mean:.3f}%")
+    
 
 
 # ==================== MAIN PAGE ====================
